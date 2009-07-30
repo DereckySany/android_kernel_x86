@@ -89,8 +89,8 @@ typedef int (*HARD_START_XMIT_FUNC)(struct sk_buff *skb, struct net_device *net_
 /* order of "if defined()" is important, because for 3070 driver
    both RT2870 and RT3070 are defined */
 #if defined(RT2860)
- #define STA_PROFILE_PATH			"/etc/Wireless/RT2860STA/RT2860STA.dat"
- #define STA_RTMP_FIRMWARE_FILE_NAME "/etc/Wireless/RT2860STA/RT2860STA.bin"
+ #define STA_PROFILE_PATH			"/system/lib/firmware/RT2860STA/RT2860STA.dat"
+ #define STA_RTMP_FIRMWARE_FILE_NAME		"/system/lib/firmware/RT2860STA/RT2860STA.bin"
  #define STA_NIC_DEVICE_NAME			"RT2860STA"
  #define STA_DRIVER_VERSION			"1.8.1.1"
 #elif defined(RT3070)
