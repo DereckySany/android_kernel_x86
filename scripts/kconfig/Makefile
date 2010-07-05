@@ -29,6 +29,12 @@ oldconfig: $(obj)/conf
 silentoldconfig: $(obj)/conf
 	$< -s $(Kconfig)
 
+nonint_oldconfig: $(obj)/conf
+	$< -b $(Kconfig)
+
+loose_nonint_oldconfig: $(obj)/conf
+	$< -B $(Kconfig)
+
 localmodconfig: $(obj)/streamline_config.pl $(obj)/conf
 	$(Q)perl $< $(srctree) $(Kconfig) > .tmp.config
 	$(Q)if [ -f .config ]; then 				\
