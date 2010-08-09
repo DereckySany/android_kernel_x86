@@ -247,10 +247,13 @@ out:
 
 int intelfb_probe(struct drm_device *dev)
 {
-	int ret;
+#if !defined(CONFIG_DRM_I915_COLOR_DEPTH) || (CONFIG_DRM_I915_COLOR_DEPTH != 16)
+#define CONFIG_DRM_I915_COLOR_DEPTH 32
+#endif
+	int ret = CONFIG_DRM_I915_COLOR_DEPTH;
 
 	DRM_DEBUG("\n");
-	ret = drm_fb_helper_single_fb_probe(dev, 32, intelfb_create);
+	ret = drm_fb_helper_single_fb_probe(dev, ret, intelfb_create);
 	return ret;
 }
 EXPORT_SYMBOL(intelfb_probe);
