@@ -100,7 +100,9 @@ PHONY += allnoconfig allyesconfig allmodconfig alldefconfig randconfig
 allnoconfig allyesconfig allmodconfig alldefconfig randconfig: $(obj)/conf
 	$< --$@ $(Kconfig)
 
-PHONY += listnewconfig oldnoconfig savedefconfig defconfig
+PHONY += listnewconfig oldnoconfig savedefconfig defconfig loose_nonint_oldconfig
+
+loose_nonint_oldconfig: oldnoconfig
 
 listnewconfig oldnoconfig: $(obj)/conf
 	$< --$@ $(Kconfig)
