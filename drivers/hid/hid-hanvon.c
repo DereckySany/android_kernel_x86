@@ -220,3 +220,4 @@ static void __exit hanvon_exit(void)
 module_init(hanvon_init);
 module_exit(hanvon_exit);
 
+MODULE_ALIAS("usb:v20B3p0A18d3891dc*dsc*dp*ic*isc*ip*");
