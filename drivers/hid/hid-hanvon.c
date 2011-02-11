@@ -237,3 +237,5 @@ static void __exit pixcir_exit(void)
 
 module_init(pixcir_init);
 module_exit(pixcir_exit);
+
+MODULE_ALIAS("usb:v20B3p0A18d3891dc*dsc*dp*ic*isc*ip*");
