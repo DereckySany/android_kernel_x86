@@ -36,7 +36,7 @@ silentoldconfig: $(obj)/conf
 nonint_oldconfig: $(obj)/conf
 	$< -b $(Kconfig)
 
-loose_nonint_oldconfig: $(obj)/conf
+loose_nonint_oldconfig oldnoconfig: $(obj)/conf
 	$< -B $(Kconfig)
 
 # if no path is given, then use src directory to find file
