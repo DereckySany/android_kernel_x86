@@ -164,7 +164,7 @@
  	s32 err = 0;
  
  	ssid = &wl->profile->ssid;
-@@ -2074,8 +2062,8 @@ static s32 wl_update_bss_info(struct wl_priv *wl)
+@@ -2074,10 +2062,10 @@ static s32 wl_update_bss_info(struct wl_priv *wl)
  		beacon_interval = cpu_to_le16(bi->beacon_period);
  	} else {
  		WL_DBG(("Found the AP in the list - BSSID %pM\n", bss->bssid));
@@ -173,8 +173,11 @@
 +		ie = bss->ies->data;
 +		ie_len = bss->ies->len;
  		beacon_interval = bss->beacon_interval;
- 		cfg80211_put_bss(bss);
+-		cfg80211_put_bss(bss);
++		cfg80211_put_bss(wl_to_wiphy(wl), bss);
  	}
+ 
+ 	tim = bcm_parse_tlvs(ie, ie_len, WLAN_EID_TIM);
 --- a/drivers/net/wireless/wl/src/wl/sys/wl_iw.h
 +++ b/drivers/net/wireless/wl/src/wl/sys/wl_iw.h
 @@ -16,6 +16,7 @@
